@@ -7,6 +7,6 @@ window.addEventListener('load', function () {
     const resources = performance.getEntriesByType("resource");
     resources.forEach(function (resource) {
         console.log('资源名称:', resource.name);
-        console.log('响应时间:', resource.responseEnd - resource.startTime);
+        // console.log('响应时间:', resource.responseEnd - resource.startTime);
     });
 });

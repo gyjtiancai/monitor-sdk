@@ -12,7 +12,7 @@ plugins.push(new HtmlWebpackPlugin({ title: "monitor-sdk", template: './template
 module.exports = {
     mode: process.env.NODE_ENV,
     devtool: isProd ? 'hidden-source-map' : 'source-map',
-    entry: './src/index.js',
+    entry: './src/index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'monitor-sdk.js',
@@ -35,6 +35,11 @@ module.exports = {
                 },
             },
             {
+                test: /\.ts$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
+            },
+            {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
             },
@@ -50,6 +55,9 @@ module.exports = {
                 },
             },
         ],
+    },
+    resolve: {
+        extensions: ['.ts', '.js']
     },
     plugins: plugins,
     devServer: {
