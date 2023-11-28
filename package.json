@@ -1,16 +1,17 @@
 {
   "name": "@geyj/monitor-sdk",
-  "version": "0.0.1",
-  "description": "web应用程序通用方法",
+  "version": "1.0.0",
+  "description": "Monitor Sdk",
   "main": "dist/monitor-sdk.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "webpack serve --node-env development",
     "build": "webpack --node-env production"
   },
   "files": [],
   "keywords": [
-    "webapp",
-    "utils"
+    "monitor",
+    "sdk"
   ],
   "author": "geyujie",
   "license": "ISC",
