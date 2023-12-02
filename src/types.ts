@@ -1,4 +1,8 @@
-export type MonitorType = 'Performance' | 'Behavior' | 'Error'
+enum MonitorType {
+    Performance = 'Performance',
+    Behavior = 'Behavior',
+    Error = 'Error'
+}
 interface Sdk {
     version: string
     name: string
@@ -34,6 +38,7 @@ interface ReportData {
 }
 
 export {
+    MonitorType,
     Sdk,
     App,
     User,

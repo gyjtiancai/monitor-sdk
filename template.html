@@ -1,20 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>monitor-sdk</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>monitor-sdk</title>
   <!-- Import style -->
   <link rel="stylesheet" href="//unpkg.com/element-plus/dist/index.css" />
   <!-- Import Vue 3 -->
   <script src="//unpkg.com/vue@3"></script>
-  <!-- Import component library -->
-  <script src="//unpkg.com/element-plus"></script>
 </head>
+
 <body>
-    <!-- <img src="https://www.blog.okoknb.cn/img/life-2.ef9b479c1.jpg" alt=""> -->
-    <button class="123" id="321" name="213123123">点击</button>
-    <input type="text">
-    <el-button type="primary">element</el-button>
+  <!-- <img src="https://www.blog.okoknb.cn/img/life-2.ef9b479c1.jpg" alt=""> -->
+  <button class="123" id="321" name="213123123">点击</button>
+  <input type="text">
+  <el-button type="primary">element</el-button>
+
+  <div id="app">{{ message }}
+    <!-- <button @click="changeRouter1" type="primary">切换路由1</button> -->
+    <button @click="changeRouter1" type="primary">切换路由1</button>
+    <button @click="changeRouter2" type="primary">切换路由2</button>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const message = ref('Hello vue!')
+        // const changeRouter1 = () => {
+        //   history.pushState({ page: 1 }, '标题1', '#/page1')
+        // }
+        const changeRouter1 = () => {
+          window.location.hash = '#/new1'
+        }
+        const changeRouter2 = () => {
+          window.location.hash = '#/new2'
+        }
+        return {
+          message,
+          changeRouter1,
+          changeRouter2
+        }
+      }
+    }).mount('#app')
+  </script>
 </body>
+
 </html>

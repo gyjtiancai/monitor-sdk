@@ -1,3 +1,12 @@
+import { registerPerformanceMonitor } from './performance'
+import { registerJavaScriptErrorMonitor, registerPromiseErrorMonitor } from './error'
+import { registerBehaviorMonitor } from './behavior'
+import { registorBasicInfo, reportData } from './report'
+registorBasicInfo({ appId: 'Monitor SDK', appName: '前端监控SDK', userId: 'Ge YuJie', userName: '葛宇杰' })
+registerPerformanceMonitor()
+registerJavaScriptErrorMonitor()
+registerPromiseErrorMonitor()
+registerBehaviorMonitor()
 const test = () => {
     const createImage = () => {
         const image = new Image()

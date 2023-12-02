@@ -2,6 +2,7 @@
  * 性能
  */
 import { reportData } from './report'
+import { MonitorType } from './types'
 const registerPerformanceMonitor = () => {
     new PerformanceObserver((entryList) => {
         //* 白屏
@@ -10,7 +11,7 @@ const registerPerformanceMonitor = () => {
             if (entry.name === 'first-contentful-paint') {
                 console.log('白屏时间: ', entry.startTime, '毫秒');
                 reportData({
-                    type: 'Performance',
+                    type: MonitorType.Performance,
                     content: {
                         type: 'white_screen_time',
                         time: entry.startTime
@@ -25,7 +26,7 @@ const registerPerformanceMonitor = () => {
                 console.log('资源: ' + resource.name);
                 console.log('加载时间: ' + resource.duration + '毫秒');
                 reportData({
-                    type: 'Performance',
+                    type: MonitorType.Performance,
                     content: {
                         type: 'resource_load_time',
                         name: resource.name,

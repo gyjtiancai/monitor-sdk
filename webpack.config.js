@@ -17,12 +17,12 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'monitor-sdk.js',
         library: {
-            type: 'module',
+            type: isProd ? 'module' : 'umd',
         },
         clean: true,
     },
     experiments: {
-        outputModule: true,
+        outputModule: isProd ? true : false,
     },
     module: {
         rules: [

@@ -2,13 +2,14 @@
  * 错误
  */
 import { reportData } from './report'
+import { MonitorType } from './types'
 const registerJavaScriptErrorMonitor = () => {
     //* JavaScript Error 
     window.addEventListener('error', (error: ErrorEvent) => {
         reportData({
-            type: 'Error',
+            type: MonitorType.Error,
             content: {
-                type: 'JavaScript Error',
+                type: 'error',
                 message: error.message,
                 stack: error.error.stack
             }
@@ -19,9 +20,9 @@ const registerPromiseErrorMonitor = () => {
     //* Promise Error
     window.addEventListener('unhandledrejection', (error) => {
         reportData({
-            type: 'Error',
+            type: MonitorType.Error,
             content: {
-                type: 'Promise Error',
+                type: 'unhandledrejection',
                 message: error.reason.message,
                 stack: error.reason.stack
             }
