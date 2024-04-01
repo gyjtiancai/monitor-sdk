@@ -12,10 +12,11 @@ const registerPerformanceMonitor = () => {
                 console.log('白屏时间: ', entry.startTime, '毫秒');
                 reportData({
                     type: MonitorType.Performance,
-                    content: {
-                        type: 'white_screen_time',
-                        time: entry.startTime
-                    }
+                    subType: 'white_screen_time',
+                    content: JSON.stringify({
+                        time: entry.startTime,
+                        unit: 'ms'
+                    })
                 })
             }
         }
@@ -27,19 +28,19 @@ const registerPerformanceMonitor = () => {
                 console.log('加载时间: ' + resource.duration + '毫秒');
                 reportData({
                     type: MonitorType.Performance,
-                    content: {
-                        type: 'resource_load_time',
+                    subType: 'resource_load_time',
+                    content: JSON.stringify({
                         name: resource.name,
-                        time: resource.duration
-                    }
+                        time: resource.duration,
+                        unit: 'ms'
+                    })
                 })
             }
         });
     }).observe({ type: 'paint', buffered: true });
 }
-export {
-    registerPerformanceMonitor
-}
+export default registerPerformanceMonitor
+
 /**
  * observe({type, buffered, entryTypes})
  * @type { string }这个属性用于过滤性能条目的特定类型。它是一个字符串，用于指定单一的性能条目类型，比如 "paint" 或 "resource"。这个选项通常用于监听新引入的性能条目类型，它的优先级高于 entryTypes。

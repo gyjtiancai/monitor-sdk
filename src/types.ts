@@ -12,6 +12,7 @@ interface Sdk {
 interface App {
     id: string | number
     name: string
+    version: string
 }
 interface User {
     id: string | number
@@ -27,14 +28,29 @@ interface Device {
 
 interface ReportData {
     type: MonitorType
-    app: App
-    user: User
-    content: any
+    subType: string
+    content: string
     pageUrl: string
     timestamp: number
     timeCN: string
-    sdk: Sdk
-    device: Device
+    // app: App
+    appId: string | number
+    appName: string
+    appVersion: string
+    // user: User
+    userId: string | number
+    userName: string
+    // sdk: Sdk
+    sdkName: string
+    sdkDescription: string
+    sdkVersion: string
+    sdkAuthor: string
+    // device: Device
+    deviceUserAgent: string
+    deviceLanguage: string
+    deviceOnLine: boolean
+    deviceHardwareConcurrency: number
+    deviceGeolocation?: GeolocationCoordinates
 }
 
 export {

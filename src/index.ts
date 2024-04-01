@@ -1,14 +1,21 @@
-import { registerPerformanceMonitor } from './performance'
-import { registerJavaScriptErrorMonitor, registerPromiseErrorMonitor } from './error'
-import { registerBehaviorMonitor } from './behavior'
-import { registorBasicInfo, reportData } from './report'
-// import './test'
+import { registorMonitor, reportData } from './report'
+
+import {
+    MonitorType,
+    Sdk,
+    App,
+    User,
+    Device,
+    ReportData
+} from './types'
 
 export {
-    registerPerformanceMonitor,
-    registerJavaScriptErrorMonitor,
-    registerPromiseErrorMonitor,
-    registerBehaviorMonitor,
-    registorBasicInfo,
-    reportData
+    registorMonitor,
+    reportData,
+    MonitorType,
+    Sdk,
+    App,
+    User,
+    Device,
+    ReportData
 }
